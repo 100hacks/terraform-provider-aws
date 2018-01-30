@@ -180,6 +180,11 @@ func validateDbParamGroupNamePrefix(v interface{}, k string) (ws []string, error
 
 func validateStreamViewType(v interface{}, k string) (ws []string, errors []error) {
 	value := v.(string)
+
+	if value == "" {
+		return
+	}
+
 	viewTypes := map[string]bool{
 		"KEYS_ONLY":          true,
 		"NEW_IMAGE":          true,
